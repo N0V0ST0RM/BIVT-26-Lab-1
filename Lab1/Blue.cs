@@ -79,7 +79,9 @@ namespace Lab1
             else if (x > -1 && x <= 0)
             {
                 answer = x + 1;
+            }
             else
+            {
                 answer = 1;
             }
             // end
