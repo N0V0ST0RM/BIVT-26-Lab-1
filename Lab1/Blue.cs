@@ -134,14 +134,10 @@ namespace Lab1
             int goldB = b / 2;
             int goldC = c / 2;
 
-            
             bool option1 = (goldA == goldB && goldB == goldC);
+            bool option2 = (goldA == goldB && goldA == goldC + 1);
 
-            
-            bool option2 = (goldA == goldB && goldA == (goldC + 1));
-
-            
-            if ((option1 || option2) && goldA >= 1 && goldB >= 1 && goldC >= 1)
+            if ((option1 || option2) && goldA >= 1)
             {
                 answer = true;
             }
