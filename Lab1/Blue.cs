@@ -1,3 +1,5 @@
+using System;
+
 namespace Lab1
 {
     public class Blue
@@ -7,10 +9,8 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            if ((a > 0 && b > 0) || (a < 0 && b < 0))
-            {
-                answer = true;
-            }
+            if ((a > 0) & (b > 0)) answer = true;
+            if ((a < 0) & (b < 0)) answer = true;
             // end
 
             return answer;
@@ -20,11 +20,7 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            double fraction = Math.Abs(d - Math.Truncate(d));
-            if (fraction >= 0.0001)
-            {
-                answer = true;
-            }
+            if (Math.Abs(d - Math.Truncate(d)) > 0.0001) answer = true;
             // end
 
             return answer;
@@ -34,10 +30,7 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            if (b != 0 && a % b == 0)
-            {
-                answer = true;
-            }
+            if (a % b == 0 & b != 0) answer = true;
             // end
 
             return answer;
@@ -47,22 +40,11 @@ namespace Lab1
             double answer = 0;
 
             // code here
-            double absd = Math.Abs(d);
-            double absf = Math.Abs(f);
-            double absg = Math.Abs(g);
+            double d_a = System.Math.Abs(d);
+            double f_a = System.Math.Abs(f);
+            double g_a = System.Math.Abs(g);
 
-            if (absd >= absf && absd >= absg)
-            {
-                answer = d;
-            }
-            else if (absf >= absd && absf >= absg)
-            {
-                answer = f;
-            }
-            else
-            {
-                answer = g;
-            }
+            if (d_a >= f_a & d_a >= g_a) answer = d;else if (f_a >= d_a & f_a >= g_a) answer = f; else answer = g;
             // end
 
             return answer;
@@ -72,18 +54,7 @@ namespace Lab1
             double answer = 0;
 
             // code here
-            if (x <= -1)
-            {
-                answer = 0;
-            }
-            else if (x > -1 && x <= 0)
-            {
-                answer = x + 1;
-            }
-            else
-            {
-                answer = 1;
-            }
+            if (-1 < x & x <= 0) answer = (x + 1); else answer = 1;
             // end
 
             return answer;
@@ -93,10 +64,7 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            if (circleS <= (Math.PI / 4) * squareS)
-            {
-                answer = true;
-            }
+            if (Math.Sqrt(circleS / Math.PI) * 2 == Math.Sqrt(squareS)) answer = true;
             // end
 
             return answer;
@@ -107,20 +75,7 @@ namespace Lab1
             int answer = 0;
 
             // code here
-            if (Math.Abs(d) < Math.Abs(f))
-            {
-                if (d > 0)
-                {
-                    answer = -1;
-                }
-            }
-            else
-            {
-                if (f > 0)
-                {
-                    answer = 1;
-                }
-            }
+            if (Math.Abs(d) < Math.Abs(f)) { if (d > 0) answer = -1; } else { if (f > 0) answer = 1; }; 
             // end
 
             return answer;
@@ -130,20 +85,29 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            int goldA = a / 2;
-            int goldB = b / 2;
-            int goldC = c / 2;
+            int S = a / 2 + b / 2 + c / 2;
+            int minCap = Math.Min(a, Math.Min(b, c));
+         
 
-            bool option1 = (goldA == goldB && goldB == goldC);
-            bool option2 = (goldA == goldB && goldA == goldC + 1);
-
-            if ((option1 || option2) && goldA >= 1)
+            if (minCap >= 1)
             {
-                answer = true;
+                if (S % 3 == 0)
+                {
+                    int x = S / 3;
+                    if (x >= 1 && x <= minCap)
+                        answer = true;
+                }
+                else if (S % 3 == 2)
+                {
+                    int x = (S + 1) / 3;
+                    if (x >= 1 && x <= minCap)
+                        answer = true;
+                }
             }
             // end
 
             return answer;
         }
+ 
     }
 }
