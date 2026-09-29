@@ -139,17 +139,25 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            int first = a / 2;
-            int second = b / 2;
-            int third = c / 2;
+            int s = a / 2 + b / 2 + c / 2;
 
-            if (first == second && first == third && first >= 1)
+            if (s % 3 == 0)
             {
-                answer = true;
+                int x = s / 3;
+
+                if (x >= 1 && x <= a && x <= b && x <= c)
+                {
+                    answer = true;
+                }
             }
-            else if (first == second && third + 1 == first && first >= 1)
+            else if ((s + 1) % 3 == 0)
             {
-                answer = true;
+                int x = (s + 1) / 3;
+
+                if (x >= 1 && x <= a && x <= b && x <= c)
+                {
+                    answer = true;
+                }
             }
             // end
 
